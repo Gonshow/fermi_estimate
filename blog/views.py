@@ -3,23 +3,28 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic
 from .models import Post, Comment
 
+# コメント、返信フォーム
 CommentForm = forms.modelform_factory(Comment, fields=('text', ))
 
 
 class PostList(generic.ListView):
+    """記事一覧"""
     model = Post
 
 
 class PostDetail(generic.DetailView):
+    """記事詳細"""
     model = Post
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # どのコメントにも紐づかないコメント=記事自体へのコメント を取得する
         context['comment_list'] = self.object.comment_set.filter(parent__isnull=True)
         return context
 
 
 def comment_create(request, post_pk):
+    """記事へのコメント作成"""
     post = get_object_or_404(Post, pk=post_pk)
     form = CommentForm(request.POST or None)
 
@@ -37,6 +42,7 @@ def comment_create(request, post_pk):
 
 
 def reply_create(request, comment_pk):
+    """コメントへの返信"""
     comment = get_object_or_404(Comment, pk=comment_pk)
     post = comment.post
     form = CommentForm(request.POST or None)
