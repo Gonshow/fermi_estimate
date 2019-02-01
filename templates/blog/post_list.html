@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            {% for post in post_list %}
+                <a href="{% url 'blog:post_detail' post.pk %}">
+                    <div class="box">
+                        <p>{{ post.title }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
