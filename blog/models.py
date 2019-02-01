@@ -11,7 +11,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     text = models.TextField('コメント内容')
-    post = models.ForeignKey(Post, verbose_name='対象記事', null=True, blank=True, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, verbose_name='対象記事', on_delete=models.CASCADE)
     parent = models.ForeignKey('self', verbose_name='親コメント', null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
