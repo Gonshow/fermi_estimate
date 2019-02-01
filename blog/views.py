@@ -1,7 +1,9 @@
+from django import forms
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic
-from .forms import CommentForm
 from .models import Post, Comment
+
+CommentForm = forms.modelform_factory(Comment, fields=('text', ))
 
 
 class PostList(generic.ListView):
