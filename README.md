@@ -4,14 +4,18 @@
 
 こちらのページを参考に作りました。
 https://blog.narito.ninja/detail/133
+
 また、フェルミ推定の方法論やデモで行なっている解放は、
 「現役東大生が書いた地頭を鍛えるフェルミ推定ノート」を参考にしました。
+
 https://www.kinokuniya.co.jp/f/dsg-08-998494011X
+
 
 ディレクトリ名やクラスが汚いので今後整理する予定です。
 
 --実行方法--
 gitでcloneし、
+
 cd fermi_estimate/
 
 python manage.py makemigrations blog
