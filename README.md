@@ -13,6 +13,8 @@ https://www.kinokuniya.co.jp/f/dsg-08-998494011X
 --実行方法--
 gitでcloneし、
 >> cd fermi_estimate/
+>> python manage.py makemigrations blog
+>> python manage.py migrate
 >> python manage.py runserver
 すると、
 Starting development server at http://...../
