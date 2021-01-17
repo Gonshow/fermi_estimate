@@ -18,6 +18,6 @@ gitでcloneし、
 Starting development server at http://...../
 とでるのでそこを開く。
 
-moduleエラーなどはpip installで入れていけば動くと思います。
+moduleエラーはpipなどでinstallしてください
 
 以下デモ映像です。
