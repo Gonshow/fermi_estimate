@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <div class="explain">
+              {% if dict %}
+              <p class="title is-5">親ノードを個ノードと四則演算記号を用いて定式化してください。カッコ()も使えます。</p>
+              <div class="title is-5">
+              {% for obj in dict %}
+                {% for i in obj %}
+                <a class="title is-5">{{ i }}<tr></a>
+                {% endfor %}
+                <br>
+              {% endfor %}
+              </div>
+              <br>
+            </div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br>
+                <input type="submit" class="button"></input>
+            </form>
+            {% else %}
+            <p class="title is-6"><font color="red">※子ノードがありません</font></p>
+            {% endif %}
+            <br>
+
+        </div>
+    </section>
+{% endblock %}

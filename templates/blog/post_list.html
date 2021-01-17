@@ -1,15 +1,19 @@
 {% extends 'blog/base.html' %}
 
+
 {% block content %}
     <section class="section">
         <div class="container">
+            <h1 class="title">推定テーマ一覧</h1>
             {% for post in post_list %}
                 <a href="{% url 'blog:post_detail' post.pk %}">
                     <div class="box">
                         <p>{{ post.title }}</p>
+                        <a href="{% url 'blog:post_delete' post.pk %}" class="button">削除</a>
                     </div>
                 </a>
             {% endfor %}
+            <p><a href="{% url 'blog:post_create' %}" class="button">新規作成</a></p>
         </div>
     </section>
 {% endblock %}

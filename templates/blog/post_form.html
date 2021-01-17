@@ -4,11 +4,10 @@
     <section class="section">
         <div class="container">
             <form action="" method="POST">
-                {{ form.as_p }}
                 {% csrf_token %}
-                <button type="submit" class=button>送信</button>
+                {{ form.as_p }}
+                <input type="submit" class="button"></input>
             </form>
-            <br>
         </div>
     </section>
 {% endblock %}

@@ -1,9 +1,25 @@
+
 {% for reply in reply_list %}
     <div class="box">
-        <p>{{ reply.text }}</p>
-        <a href="{% url 'blog:reply_create' reply.pk %}">返信する</a>
-        {% with reply_list=reply.comment_set.all %}
-            {% include 'blog/includes/reply.html' %}
-        {% endwith %}
+      {% if reply.value %}
+      <p>{{ reply.text }}</p>
+      <p>値： {{ reply.value }}</p>
+      {% with reply_list=reply.comment_set.all %}
+          {% include 'blog/includes/reply.html' %}
+      {% endwith %}
+      {% elif reply.formula_out %}
+      <p>{{ reply.text }}= {{ reply.formula_out }}</p>
+      {% with reply_list=reply.comment_set.all %}
+          {% include 'blog/includes/reply.html' %}
+      {% endwith %}
+      {% else %}
+      <p><font color="red">{{ reply.text }}</font></p>
+      <a href="{% url 'blog:reply_create' reply.pk %}" class="button">因子を追加</a>
+      <a href="{% url 'blog:comment_update' post.pk reply.pk %}" class="button">定式化</a>
+      <a href="{% url 'blog:add_value' post.pk reply.pk %}" class="button">数値を代入</a>
+      {% with reply_list=reply.comment_set.all %}
+          {% include 'blog/includes/reply.html' %}
+      {% endwith %}
+      {% endif %}
     </div>
 {% endfor %}
