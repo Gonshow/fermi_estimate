@@ -20,4 +20,5 @@ Starting development server at http://...../
 
 moduleエラーはpipなどでinstallしてください
 
-以下デモ映像です。
+以下デモのキャプチャです。
+<img width="1656" alt="スクリーンショット 2021-01-17 14 24 56" src="https://user-images.githubusercontent.com/38319910/104831860-d4681e80-58cf-11eb-91e1-720da967c7f7.png">
